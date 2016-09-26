@@ -1,3 +1,5 @@
+from __future__ import unicode_literals, division
+
 """Generic contsnts"""
 
 # Byte order magic numbers

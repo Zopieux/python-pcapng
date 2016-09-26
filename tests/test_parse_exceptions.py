@@ -8,11 +8,11 @@ from pcapng.blocks import SectionHeader
 
 
 def test_get_nonexistent_block_attribute():
-    shb = SectionHeader(
-        '\x00\x01\x00\x00'
-        '\xff\xff\xff\xff\xff\xff\xff\xff'
-        '\x00\x00\x00\x00',
-        endianness='>')
+    shb = SectionHeader.from_raw(
+        b'\x00\x01\x00\x00'
+        b'\xff\xff\xff\xff\xff\xff\xff\xff'
+        b'\x00\x00\x00\x00',
+        '>')
 
     assert shb.version == (1, 0)  # check that parsing was successful
 

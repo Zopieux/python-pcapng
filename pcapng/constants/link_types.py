@@ -1,3 +1,5 @@
+from __future__ import unicode_literals, division
+
 # Extracted from:
 # http://www.winpcap.org/ntar/draft/PCAP-DumpFileFormat.html#appendixLinkTypes
 

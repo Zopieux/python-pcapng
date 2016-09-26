@@ -1,3 +1,6 @@
+from __future__ import unicode_literals, division
+
+
 class PcapngException(Exception):
     """Base for all the pcapng exceptions"""
     pass
@@ -45,5 +48,13 @@ class BadMagic(PcapngLoadError):
     Exception used to indicate a failure due to some bad magic
     number encountered (either the file magic or section header
     byte order marker).
+    """
+    pass
+
+
+class InvalidStructure(PcapngDumpError):
+    """
+    Exception used to indicate that the operation is invalid
+    with respect to the specification.
     """
     pass

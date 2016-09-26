@@ -1,3 +1,4 @@
+from __future__ import unicode_literals, division
 import pytest
 
 from pcapng.scanner import FileScanner
@@ -5,7 +6,7 @@ from pcapng.blocks import SectionHeader, InterfaceDescription, Packet
 
 
 def test_sample_test001_ntar():
-    with open('test_data/test001.ntar') as fp:
+    with open('test_data/test001.ntar', 'rb') as fp:
         scanner = FileScanner(fp)
         blocks = list(scanner)
 
@@ -20,7 +21,7 @@ def test_sample_test001_ntar():
 
 
 def test_sample_test002_ntar():
-    with open('test_data/test002.ntar') as fp:
+    with open('test_data/test002.ntar', 'rb') as fp:
         scanner = FileScanner(fp)
         blocks = list(scanner)
 
@@ -41,7 +42,7 @@ def test_sample_test002_ntar():
 
 
 def test_sample_test003_ntar():
-    with open('test_data/test003.ntar') as fp:
+    with open('test_data/test003.ntar', 'rb') as fp:
         scanner = FileScanner(fp)
         blocks = list(scanner)
 
@@ -62,7 +63,7 @@ def test_sample_test003_ntar():
 
 
 def test_sample_test004_ntar():
-    with open('test_data/test004.ntar') as fp:
+    with open('test_data/test004.ntar', 'rb') as fp:
         scanner = FileScanner(fp)
         blocks = list(scanner)
 
@@ -82,7 +83,7 @@ def test_sample_test004_ntar():
 
 
 def test_sample_test005_ntar():
-    with open('test_data/test005.ntar') as fp:
+    with open('test_data/test005.ntar', 'rb') as fp:
         scanner = FileScanner(fp)
         blocks = list(scanner)
 
@@ -101,7 +102,7 @@ def test_sample_test005_ntar():
         assert blocks[1].snaplen == 0x7c
         assert len(blocks[1].options) == 2
 
-        assert blocks[1].options.get_raw('if_speed') == '\x00\xe4\x0b\x54\x02\x00\x00\x00'  # noqa
+        assert blocks[1].options.get_raw('if_speed') == b'\x00\xe4\x0b\x54\x02\x00\x00\x00'  # noqa
         assert blocks[1].options['if_speed'] == 0x00000002540be400
         assert blocks[1].options['if_speed'] == (10 ** 10)  # 10Gbit
 
@@ -118,7 +119,7 @@ def test_sample_test006_ntar(filename):
     # test006.ntar is reporting an incorrect size, which causes the
     # test to fail. Is this the expected behavior?
 
-    with open(filename) as fp:
+    with open(filename, 'rb') as fp:
         scanner = FileScanner(fp)
 
         blocks = list(scanner)
@@ -211,28 +212,28 @@ def test_sample_test006_ntar(filename):
 
 
 def test_sample_test007_ntar():
-    with open('test_data/test007.ntar') as fp:
+    with open('test_data/test007.ntar', 'rb') as fp:
         scanner = FileScanner(fp)
         for entry in scanner:
             pass
 
 
 def test_sample_test008_ntar():
-    with open('test_data/test008.ntar') as fp:
+    with open('test_data/test008.ntar', 'rb') as fp:
         scanner = FileScanner(fp)
         for entry in scanner:
             pass
 
 
 def test_sample_test009_ntar():
-    with open('test_data/test009.ntar') as fp:
+    with open('test_data/test009.ntar', 'rb') as fp:
         scanner = FileScanner(fp)
         for entry in scanner:
             pass
 
 
 def test_sample_test010_ntar():
-    with open('test_data/test010.ntar') as fp:
+    with open('test_data/test010.ntar', 'rb') as fp:
         scanner = FileScanner(fp)
         for entry in scanner:
             pass

@@ -8,6 +8,7 @@ import logging
 import sys
 from collections import Counter, defaultdict
 
+import six
 from scapy.layers.l2 import Ether
 from scapy.layers.inet import IP, TCP, UDP
 
@@ -71,10 +72,10 @@ if __name__ == '__main__':
     # Print report
     # ------------------------------------------------------------
 
-    for counter_name, items in sorted(counters.iteritems()):
+    for counter_name, items in sorted(six.iteritems(counters)):
         print(counter_name)
         print('-' * 60)
-        sorted_items = sorted(items.iteritems(), key=lambda x: x[1],
+        sorted_items = sorted(six.iteritems(items), key=lambda x: x[1],
                               reverse=True)
 
         for key, value in sorted_items[:30]:

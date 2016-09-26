@@ -22,7 +22,10 @@ setup(
     description='Library to read/write the pcap-ng format '
     'used by various packet sniffers',
     long_description=longdesc,
-    install_requires=[],
+    install_requires=['six'],
+    extras_require={
+      ':python_version < "3.3"': ['ipaddress'],
+    },
     classifiers=[
         "License :: OSI Approved :: Apache Software License",
 

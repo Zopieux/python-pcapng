@@ -1,5 +1,7 @@
 [run]
 parallel = False
+omit = .venv*
+source = ./pcapng
 
 [report]
 exclude_lines =
@@ -7,6 +9,4 @@ exclude_lines =
     pass
     raise AssertionError
     raise NotImplementedError
-source = pcapng
 show_missing = True
-omit = .venv*

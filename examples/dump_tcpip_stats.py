@@ -6,6 +6,7 @@ import logging
 import sys
 from collections import Counter
 
+import six
 from scapy.layers.l2 import Ether
 from scapy.layers.inet import IP, TCP
 
@@ -83,7 +84,7 @@ if __name__ == '__main__':
     # def _rsic(o):
     #     return sorted(o.iteritems(), key=lambda x: x[1], reverse=True)
 
-    _rsic = lambda o: sorted(o.iteritems(), key=lambda x: x[1], reverse=True)
+    _rsic = lambda o: sorted(six.iteritems(o), key=lambda x: x[1], reverse=True)
 
     title('IP Sources (by packet count)')
     for key, val in _rsic(ip_src_count)[:30]:

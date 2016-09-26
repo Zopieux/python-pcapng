@@ -1,3 +1,5 @@
+from __future__ import unicode_literals, division
+
 # PCAPNG Block types
 
 BLK_RESERVED = 0x00000000  # Reserved
